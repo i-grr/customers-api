@@ -7,11 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Customer {
 	
 	@Id
@@ -26,5 +33,10 @@ public class Customer {
 	
 	@Column(name = "date_register")
 	private LocalDate dateRegister;
+	
+	@PrePersist
+	public void prePersist() {
+		setDateRegister(LocalDate.now());
+	}
 
 }
