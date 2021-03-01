@@ -37,7 +37,7 @@ public class CustomerController {
 	public Customer findById(@PathVariable Integer id) {
 		return customerRepository
 				.findById(id)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado."));
 	}
 	
 	@DeleteMapping("{id}")
