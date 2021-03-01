@@ -1,5 +1,7 @@
 package io.github.i_grr.customers.rest;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +27,7 @@ public class CustomerController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Customer save(@RequestBody Customer customer) {
+	public Customer save(@RequestBody @Valid Customer customer) {
 		System.out.println(customer.getName());
 		System.out.println(customer.getCpf());
 		return customerRepository.save(customer);

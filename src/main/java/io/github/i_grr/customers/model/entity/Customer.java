@@ -9,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,12 +32,12 @@ public class Customer {
 	private Integer id;
 	
 	@Column(nullable = false, length = 150)
-	@NotEmpty
+	@NotEmpty(message = "{input.name.required}")
 	private String name;
 	
 	@Column(nullable = false, length = 11)
-	@NotNull
-	@CPF
+	@NotNull(message = "{input.cpf.required}")
+	@CPF(message = "{input.cpf.invalid}")
 	private String cpf;
 	
 	@Column(name = "date_register", updatable = false)
