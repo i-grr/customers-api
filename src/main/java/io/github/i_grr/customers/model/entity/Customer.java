@@ -33,7 +33,7 @@ public class Customer {
 	@Column(nullable = false, length = 11)
 	private String cpf;
 	
-	@Column(name = "date_register")
+	@Column(name = "date_register", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dateRegister;
 	
