@@ -5,7 +5,7 @@
 
 <div class="container">
 
-    <form>
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit()">
 
         <div class="row">
 
@@ -45,7 +45,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-success" (click)="clicar()">
+                <button type="submit" class="btn btn-success">
                     <i class="fa fa-save mr-2"></i> Salvar
                 </button>
             </div>
