@@ -40,13 +40,13 @@ public class Customer {
 	@CPF(message = "{input.cpf.invalid}")
 	private String cpf;
 	
-	@Column(name = "date_register", updatable = false)
+	@Column(name = "register_date", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dateRegister;
+	private LocalDate registerDate;
 	
 	@PrePersist
 	public void prePersist() {
-		setDateRegister(LocalDate.now());
+		setRegisterDate(LocalDate.now());
 	}
 
 }
