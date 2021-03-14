@@ -5,6 +5,7 @@ import { CustomersListComponent } from './customers-list/customers-list.componen
 
 const routes: Routes = [
     { path: 'customers-form', component: CustomersFormComponent },
+  { path: 'customers-form/:id', component: CustomersFormComponent },
     { path: 'customers-list', component: CustomersListComponent}
 ];
 

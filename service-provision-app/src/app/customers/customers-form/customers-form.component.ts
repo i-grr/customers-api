@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
 import { Customer } from '../customer';
 
@@ -13,14 +13,27 @@ export class CustomersFormComponent implements OnInit {
   customer: Customer;
   success: boolean = false;
   errors: String[];
+  id: number;
 
   constructor(
     private service: CustomerService, 
-    private router: Router) {
-    this.customer = new Customer();
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+      this.customer = new Customer();
   }
 
   ngOnInit(): void {
+    let params = this.activatedRoute.params
+      .subscribe(params => {
+
+        if (params && params['id']) {
+          this.service.getCustomerById(params.id)
+            .subscribe(
+              response => this.customer = response,
+              errorResponse => this.customer = new Customer()
+            )
+        }
+      });
   }
 
   onSubmit() {

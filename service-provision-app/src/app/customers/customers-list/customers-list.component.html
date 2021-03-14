@@ -34,7 +34,11 @@
                         <td>{{ customer.name }}</td>
                         <td>{{ customer.cpf }}</td>
                         <td>{{ customer.registerDate }}</td>
-                        <td></td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/customers-form/{{ customer.id }}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
 
