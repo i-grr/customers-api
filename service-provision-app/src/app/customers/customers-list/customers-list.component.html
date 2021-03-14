@@ -6,6 +6,20 @@
 <div class="container">
 
     <div class="row">
+    
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="successMessage">
+                {{ successMessage }}
+            </div>
+    
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-2">
             <button class="btn btn-warning" (click)="newRegister()">
                 <i class="fa fa-plus mr-2"></i> Novo
@@ -35,14 +49,40 @@
                         <td>{{ customer.cpf }}</td>
                         <td>{{ customer.registerDate }}</td>
                         <td>
-                            <button class="btn btn-primary" routerLink="/customers-form/{{ customer.id }}">
+                            <button class="btn btn-primary mr-2" routerLink="/customers-form/{{ customer.id }}">
                                 <i class="fa fa-edit"></i>
+                            </button>
+
+                            <button class="btn btn-danger" data-toggle="modal" 
+                                    data-target="#modalRemove" (click)="preparingRemove(customer)">
+                                <i class="fa fa-trash"></i>
                             </button>
                         </td>
                     </tr>
                 </tbody>
 
             </table>
+        </div>
+    </div>
+
+    <div id="modalRemove" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+
+                <div class="modal-body" *ngIf="selectedCustomer">
+                    Deseja remover {{ selectedCustomer.name }} do cadastro de clientes?
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="removeCustomer()" data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+
+            </div>
         </div>
     </div>
 

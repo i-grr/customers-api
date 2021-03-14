@@ -11,6 +11,9 @@ import { Customer } from '../customer';
 export class CustomersListComponent implements OnInit {
 
   customers: Customer[] = [];
+  selectedCustomer: Customer;
+  successMessage: string;
+  errorMessage: string;
 
   constructor(
     private service: CustomerService, 
@@ -24,6 +27,22 @@ export class CustomersListComponent implements OnInit {
 
   newRegister() {
     this.router.navigate(['/customers-form']);
+  }
+
+  preparingRemove(customer: Customer) {
+    this.selectedCustomer = customer;
+  }
+
+  removeCustomer() {
+    this.service
+      .remove(this.selectedCustomer)
+      .subscribe(
+        response => {
+          this.successMessage = 'Cliente removido com sucesso!',
+          this.ngOnInit();
+        },
+        error => this.errorMessage = 'Ocorreu um erro ao remover o cliente.'
+      )
   }
 
 }

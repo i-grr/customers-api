@@ -27,4 +27,8 @@ export class CustomerService {
     return this.http.get<Customer>(`http://localhost:8080/api/customers/${id}`);
   }
 
+  remove(customer: Customer): Observable<any> {
+    return this.http.delete<any>(`http://localhost:8080/api/customers/${customer.id}`);
+  }
+
 }
