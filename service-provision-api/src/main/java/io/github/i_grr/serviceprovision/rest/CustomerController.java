@@ -1,4 +1,4 @@
-package io.github.i_grr.customers.rest;
+package io.github.i_grr.serviceprovision.rest;
 
 import java.util.List;
 
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import io.github.i_grr.customers.model.entity.Customer;
-import io.github.i_grr.customers.model.repository.CustomerRepository;
+import io.github.i_grr.serviceprovision.model.entity.Customer;
+import io.github.i_grr.serviceprovision.model.repository.CustomerRepository;
 
 @RestController
 @RequestMapping("/api/customers")

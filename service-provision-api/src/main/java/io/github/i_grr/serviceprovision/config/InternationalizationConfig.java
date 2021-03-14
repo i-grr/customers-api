@@ -1,4 +1,4 @@
-package io.github.i_grr.customers.config;
+package io.github.i_grr.serviceprovision.config;
 
 import java.util.Locale;
 

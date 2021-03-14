@@ -1,4 +1,4 @@
-package io.github.i_grr.customers.model.entity;
+package io.github.i_grr.serviceprovision.model.entity;
 
 import java.time.LocalDate;
 

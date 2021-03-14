@@ -1,4 +1,4 @@
-package io.github.i_grr.customers.rest.exceptions;
+package io.github.i_grr.serviceprovision.rest.exceptions;
 
 import java.util.Arrays;
 import java.util.List;
