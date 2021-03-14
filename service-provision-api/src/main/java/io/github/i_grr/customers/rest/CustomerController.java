@@ -1,5 +1,7 @@
 package io.github.i_grr.customers.rest;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,11 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@GetMapping
+	public List<Customer> getAll() {
+		return customerRepository.findAll();
+	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
