@@ -25,7 +25,10 @@ export class CustomersFormComponent implements OnInit {
       .save(this.customer)
       .subscribe(response => {
         this.success = true;
+        this.errors = [];
+        this.customer = response;
       }, errorResponse => {
+        this.success = false;
         this.errors = errorResponse.error.errors;
       })
   }
