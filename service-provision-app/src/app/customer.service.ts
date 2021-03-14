@@ -15,6 +15,10 @@ export class CustomerService {
     return this.http.post<Customer>('http://localhost:8080/api/customers', customer);
   }
 
+  update(customer: Customer): Observable<any> {
+    return this.http.put<Customer>(`http://localhost:8080/api/customers/${customer.id}`, customer);
+  }
+
   getCustomers() : Observable<Customer[]> {
     return this.http.get<Customer[]>('http://localhost:8080/api/customers');
   }
