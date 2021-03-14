@@ -15,11 +15,18 @@ export class CustomerService {
     return this.http.post<Customer>('http://localhost:8080/api/customers/', customer);
   }
 
-  getCustomer() : Customer {
-    let customer: Customer = new Customer();
+  /*
+  getCustomers() : Observable<Customer[]> {
+    return ;
+  }*/
+
+  getCustomers() : Customer[] {
+    let customer = new Customer();
+    customer.id = 1;
     customer.name = 'Igor';
-    customer.cpf = '888';
-    return customer;
+    customer.registerDate = '10/03/2021';
+    customer.cpf = '123123';
+    return [customer];
   }
 
 }
