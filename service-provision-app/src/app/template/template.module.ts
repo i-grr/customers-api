@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from '../customers/home/home.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [NavbarComponent, SidebarComponent, FooterComponent, HomeComponent],
+  declarations: [NavbarComponent, SidebarComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule
@@ -15,8 +14,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     NavbarComponent,
     SidebarComponent,
-    FooterComponent,
-    HomeComponent
+    FooterComponent
   ]
 })
 export class TemplateModule { }
