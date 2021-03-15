@@ -8,6 +8,7 @@ import { CustomerService } from './customer.service';
 import { CustomersModule } from './customers/customers.module';
 import { HomeComponent } from './home/home.component';
 import { TemplateModule } from './template/template.module';
+import { ServiceProvidedModule } from './service-provided/service-provided.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TemplateModule } from './template/template.module';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    CustomersModule
+    CustomersModule,
+    ServiceProvidedModule
   ],
   providers: [
     CustomerService
